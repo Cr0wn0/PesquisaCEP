@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <title>Respostas</title>
+    <h1>Outros tópicos</h1>
+</head>
+<body>
+<p>
+    <ol>
+        <li>Hoisting é um comportamento do JavaScript onde variáveis e funções são movidas para o topo do seu contexto de execução antes da execução do código. No entanto, apenas as declarações são içadas, não as inicializações.</li>
+        <ul>
+            console.log(x); // undefined
+            var x = 5;
+            console.log(x); // 5
+            </ul>
+
+        <li>Arrow functions são uma forma mais concisa de escrever funções em JavaScript. Elas não possuem seu próprio this, o que as torna ideais para funções de callback.</li>
+        <ul>const soma = (a, b) => a + b;
+            console.log(soma(2, 3)); // 5
+        </ul>    
+        <ul> function normal() {
+                this.valor = 1;
+                setTimeout(function() {
+                    this.valor++;
+                    console.log(this.valor); // undefined
+                }, 1000);
+            }
+            new normal();
+        </ul>    
+        <ul>    function arrow() {
+                this.valor = 1;
+                setTimeout(() => {
+                    this.valor++;
+                    console.log(this.valor); // 2
+                }, 1000);
+            }
+            new arrow();
+        </ul>    
+            </ul>
+
+        <li>Desestruturação é uma expressão que permite desempacotar valores de arrays ou propriedades de objetos em variáveis distintas.</li>
+        <ul>const pessoa = { nome: "Alice", idade: 30 };
+            const { nome, idade } = pessoa;
+            console.log(nome); // Alice
+            console.log(idade); // 30
+        </ul>    
+        <ul>const numeros = [1, 2, 3];
+            const [primeiro, segundo] = numeros;
+            console.log(primeiro); // 1
+            console.log(segundo); // 2
+        </ul>
+
+    <li>Closures são funções que têm acesso ao escopo de sua função pai, mesmo após a função pai ter sido executada. Elas permitem preservar o estado.</li>
+    <ul>function criarContador() {
+        let contador = 0;
+        return function() {
+            contador++;
+            return contador;
+        };
+    }
+    </ul>
+    <ul>const contador1 = criarContador();
+    console.log(contador1()); // 1
+    console.log(contador1()); // 2
+    
+    const contador2 = criarContador();
+    console.log(contador2()); // 1
+    </ul>
+    </ol>
+</p>
+<p><a href="resposta.html">Voltar</a></p>
+<p><a href="index.html">Volte a pesquisa de CEP</a></p>
+</body>
+</html>

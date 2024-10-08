@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <title>Pesquisas</title>
+        <h1>
+            Respostas para as pesquisas
+        </h1>
+    </head>
+    <body>
+        <p>
+        <ol>
+            <li>Assincronismo é uma abordagem de programação que permite que o código continue sua execução sem esperar pela conclusão de operações demoradas, como chamadas a APIs ou leitura de arquivos. Isso é crucial para manter a responsividade das aplicações, especialmente na web.</li>
+            <li>AJAX é uma técnica que permite que páginas da web carreguem dados de forma assíncrona, sem recarregar a página. Ele usa o objeto XMLHttpRequest.
+                <ul>Exemplo:
+                const xhr = new XMLHttpRequest();
+xhr.open("GET", "https://api.exemplo.com/dados", true);
+xhr.onload = function () {
+    if (xhr.status >= 200 && xhr.status < 300) {
+        console.log(JSON.parse(xhr.responseText));
+    }
+};
+xhr.send();
+                </ul>
+            </li>
+            <li>Promises são objetos que representam o resultado de uma operação assíncrona, permitindo que você trate o resultado ou o erro quando estiver disponível.
+                <ul>Exemplo:
+                const minhaPromise = new Promise((resolve, reject) => {
+                    const sucesso = true; // Simula uma operação
+                    if (sucesso) {
+                        resolve("Operação bem-sucedida!");
+                    } else {
+                        reject("Erro na operação.");
+                    }
+                });
+                
+                minhaPromise
+                    .then(result => console.log(result))
+                    .catch(error => console.error(error));
+                </ul>
+            </li>
+            <li>
+                A Fetch API é uma interface moderna para fazer requisições assíncronas de rede, substituindo XMLHttpRequest. Ela retorna uma Promise que resolve para a resposta da requisição.
+                <ul>
+                    Exemplo:fetch("https://api.exemplo.com/dados")
+                    .then(response => response.json())
+                    .then(data => console.log(data))
+                    .catch(error => console.error("Erro:", error));                
+                </ul>
+            </li>
+            <li>
+                Async/Await é uma sintaxe que simplifica o trabalho com Promises, permitindo que o código assíncrono seja escrito de forma mais parecida com o código síncrono.
+                <ul>
+                    const obterDados = async () => {
+                        try {
+                            const response = await fetch("https://api.exemplo.com/dados");
+                            const data = await response.json();
+                            console.log(data);
+                        } catch (error) {
+                            console.error("Erro:", error);
+                        }
+                    };
+                    
+                    obterDados();                    
+                </ul>
+            </li>
+        </ol>
+        <ul>
+            <li>
+                Desvantagens e vantagens:
+            </li>
+            <li>
+                AJAX:
+                <ul>Vantagens: Funciona em todos os navegadores, fácil de implementar.</ul>
+                <ul>Desvantagens: Sintaxe mais verbosa, difícil de gerenciar com várias requisições.</ul>
+            </li>
+            </li>
+            <li>
+                Promises:
+                <ul>Vantagens: Facilita o tratamento de operações assíncronas, encadeamento fácil.</ul>
+                <ul>Desvantagens: Pode levar a "callback hell" se não for gerenciado corretamente.</ul>
+            </li>
+            <li>
+                Fetch API:
+                <ul>Vantagens: Sintaxe simples e baseada em Promises, suporte a operações mais modernas.</ul>
+                <ul>Desvantagens: Não suporta abortar requisições (sem AbortController) e não é suportada em navegadores muito antigos.</ul>
+            </li>
+            <li>
+                Async/Await:
+                <ul>Vantagens: Código mais limpo e legível, fácil de tratar erros com try/catch.</ul>
+                <ul>Desvantagens: Requer um entendimento sólido de Promises, pode ser mais difícil de depurar.</ul>
+            </li>
+        </ul>
+        </p>
+        <p><a href="respostas2.html">Próximas respostas</a></p>
+        <p><a href="index.html">Volte a pesquisa de CEP</a></p>
+    </body>
+</html>
